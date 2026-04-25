@@ -91,7 +91,7 @@ export const caseStudies: CaseStudy[] = [
         id: "0.3",
         title: "Core component catalogue",
         type: "image",
-        src: "/hourflow/Hourflow-interface.png",
+        src: "/hourflow/Hourflow-Interface.png",
       },
       {
         id: "0.4",
