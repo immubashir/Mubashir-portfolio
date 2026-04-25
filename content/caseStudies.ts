@@ -28,6 +28,7 @@ export type CaseStudy = {
   slug: string;
   title: string;
   subtitle: string;
+  link:string;
   category: string;
   status: string;
   tint?: string;
@@ -48,6 +49,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "hourflow",
     title: "Hourflow",
     subtitle: "Designing a distraction-free, AI-assisted study workspace",
+    link:"",
     category: "Product Design · UX Research · System Thinking",
     status: "Ongoing",
     role: "Product Designer + Engineer",
@@ -280,6 +282,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "gesturedrive",
     title: "GestureDrive",
     subtitle: "Reducing driver distraction with gesture-based infotainment control",
+    link:"https://github.com/immubashir/GestureDrive-DL",
     category: "AI · Computer Vision · Human-Centered Interaction",
     status: "Built + hosted",
     tint: "rgb(13, 26, 99)",
@@ -492,6 +495,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "sleepsense",
     title: "SleepSense",
     subtitle: "Using wellness signals to predict academic performance",
+    link:"https://github.com/immubashir/sleepsense",
     category: "Applied AI · Data Systems · Product Design",
     status: "Built + Hosted",
     tint: "rgb(202, 89, 149)",
@@ -644,6 +648,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "fashionista",
     title: "Fashionista",
     subtitle: "Designing a polished, modern e-commerce experience",
+    link:"https://fashionista-6og1.vercel.app/",
     category: "Frontend Engineering · UI Design · Commerce UX",
     status: "Built + hosted",
     tint: "rgb(255, 176, 144)",

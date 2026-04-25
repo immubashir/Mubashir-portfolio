@@ -30,9 +30,9 @@ export default function CaseStudyHero({ study }: Props) {
           <p className="text-xs uppercase tracking-[0.24em] text-[#71717a]">
             {study.category}
           </p>
-          <h1 className="mt-4 text-4xl font-semibold tracking-tight text-[#111827] md:text-6xl">
+          <Link href={study.link} className="mt-4 text-4xl font-semibold tracking-tight text-[#111827] md:text-6xl hover:underline transition-all duration-500">
             {study.title}
-          </h1>
+          </Link >
 
           <p className="mt-4 max-w-2xl text-lg leading-8 text-[#52525b] md:text-xl">
             {study.subtitle}
