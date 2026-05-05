@@ -49,8 +49,8 @@ export const caseStudies: CaseStudy[] = [
     slug: "hourflow",
     title: "Hourflow",
     subtitle: "Designing a distraction-free, AI-assisted study workspace",
-    link:"",
-    category: "Product Design · UX Research · System Thinking",
+    link: "",
+    category: "Product Design · Interaction Design · System Thinking",
     status: "Ongoing",
     role: "Product Designer + Engineer",
     timeline: "Research & Design Phase",
@@ -59,24 +59,17 @@ export const caseStudies: CaseStudy[] = [
     tint: "rgb(144, 93, 211)",
     tintLow: "rgb(144, 93, 211, 0.1)",
     overview:
-      "Hourflow is a unified study workspace designed to reduce context switching across notes, reference material, and AI. It explores a note-first interaction model where supporting tools appear only when needed, helping users stay focused on the task instead of managing multiple apps.",
+      "Hourflow is a note-first study workspace designed to eliminate context switching. Notes remain the permanent primary surface while PDFs, AI, and reference material appear temporarily — on demand, without restructuring the layout or disrupting deep focus.",
     developmentNote:
-      "Hourflow is currently in active development. The visuals shown here represent early explorations of the interface and interaction model.",
-
+      "Hourflow is currently in active design and development. The visuals shown here represent early Figma explorations of the interface and interaction model.",
     highlights: [
-      "Note-first workspace built around deep focus",
-      "Transient PDF and AI panels for quick access",
-      "Hybrid snap + float interaction model",
-      "Designed to reduce workflow fragmentation",
+      "Note-first workspace that never resizes to accommodate supporting tools",
+      "Hybrid snap + float panel model — positions change, windows don't",
+      "The Board: a session-scoped screenshot tray for direct AI attachment",
+      "AI invoked intentionally, never left open as ambient noise",
     ],
 
     mediaShowcase: [
-      // {
-      //   id: "0.1",
-      //   title: "Homepage motion concept",
-      //   type: "video",
-      //   src: "/case-studies/hourflow/motion-concept.mp4",
-      // },
       {
         id: "0.1",
         title: "Sample UI components",
@@ -97,7 +90,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         id: "0.4",
-        title: "Illustrations showcase",
+        title: "Wireframe exploration",
         type: "image",
         src: "/hourflow/Hourflow-Wireframe.png",
       },
@@ -109,8 +102,8 @@ export const caseStudies: CaseStudy[] = [
         label: "00",
         title: "What You're Seeing",
         content: [
-          "The interface shown here represents a note-first workspace where writing remains the primary surface.",
-          "Supporting tools like PDFs and AI are designed to appear temporarily, allowing quick access without permanently disrupting the layout.",
+          "Hourflow is a note-first study workspace where writing remains the permanent primary surface.",
+          "Supporting tools — PDFs, AI, reference material — are designed to appear temporarily, giving quick access without restructuring the layout or displacing what the user was doing.",
         ],
       },
       {
@@ -118,9 +111,10 @@ export const caseStudies: CaseStudy[] = [
         label: "01",
         title: "Context",
         content: [
-          "Modern study workflows are fragmented across multiple tools. Notes live in one place, lecture slides in another, AI in another, and quick lookups often happen through browser tabs.",
-          "This fragmented behavior creates constant context switching. Even when each tool works well on its own, the overall workflow feels broken.",
-          "Hourflow began as an attempt to rethink that flow as one continuous workspace instead of a collection of separate applications.",
+          "Modern studying is fragmented by design. Notes live in one app, lecture slides sit in a browser tab, AI tutoring happens in a separate window, and screenshots pile up on the desktop folder, disconnected from everything else.",
+          "After talking to roughly ten students who shared the same frustration — and experiencing it myself — a consistent pattern emerged: it wasn't any individual tool that was the problem. It was the transitions between them.",
+          "One thing kept coming up: students were pasting screenshots into ChatGPT or Claude, re-explaining the same context every single time, and losing the thread the moment they needed a follow-up. The AI was useful. The workflow around it was destroying the focus it was supposed to support.",
+          "Hourflow started as an attempt to fix the workflow — not add another tool to it.",
         ],
       },
       {
@@ -128,10 +122,11 @@ export const caseStudies: CaseStudy[] = [
         label: "02",
         title: "Problem",
         bullets: [
-          "Switching between notes, PDFs, AI, and browser tabs interrupts focus",
-          "Persistent sidebars and rigid layouts reduce the writing surface",
-          "Too many simultaneously visible tools compete for attention",
-          "Quick reference tasks often require disproportionate UI disruption",
+          "Switching between notes, PDFs, AI, and browser tabs breaks focus and resets mental context",
+          "Students re-explain the same context to AI tools every time they change windows",
+          "Screenshots get saved to desktop folders and disconnected from the AI workflow entirely",
+          "Persistent sidebars and split layouts permanently shrink the writing surface",
+          "Every tool assumes it deserves permanent screen real estate — and none of them are right",
         ],
       },
       {
@@ -142,17 +137,22 @@ export const caseStudies: CaseStudy[] = [
           {
             title: "Focus first",
             description:
-              "The writing surface should remain primary. Supporting tools must never overpower the notes experience.",
+              "Notes are always the primary surface. Supporting tools must never compete for that position or permanently displace writing space.",
           },
           {
             title: "Temporary by default",
             description:
-              "Users often need a PDF, slide, or AI response only for a short moment. The interface should support fast entry and fast exit.",
+              "Most tool interactions during study are brief. The interface should support fast entry and fast exit without altering the layout permanently.",
           },
           {
             title: "Low-friction recovery",
             description:
-              "After any interaction with a supporting panel, the user should return to their notes without having to mentally reset.",
+              "After any supporting panel interaction, the workspace returns to exactly the state the user left it in — no mental reset required.",
+          },
+          {
+            title: "Context preservation",
+            description:
+              "The system should hold context so users don't have to re-explain or re-locate. Cognitive cost lives in the transitions, not the tools.",
           },
         ],
       },
@@ -161,7 +161,7 @@ export const caseStudies: CaseStudy[] = [
         label: "04",
         title: "Key Insight",
         quote:
-          "Users do not need every tool open all the time. They need fast, temporary access to the right tool at the right moment.",
+          "Students don't need every tool open all the time. They need the right tool available for a moment — without losing where they were.",
       },
       {
         id: "exploration",
@@ -171,40 +171,40 @@ export const caseStudies: CaseStudy[] = [
           {
             title: "Concept 1 · Fixed split layout",
             description:
-              "A conventional workspace with notes and supporting tools placed side by side.",
-            pros: ["Predictable", "Easy to understand", "Familiar pattern"],
+              "Notes on one side, supporting panel on the other — the conventional split. The failure was personal: resizing the notes window to fit a PDF, then resizing back to write, then doing it again for another reference. Every resize asked me to re-orient to a slightly different surface. The 'used-to-ability' disappears the moment your workspace changes shape.",
+            pros: ["Predictable and familiar", "Easy to understand at a glance", "No interaction complexity"],
             cons: [
-              "Shrinks the writing area",
-              "Feels rigid",
-              "Too similar to existing tools",
+              "Permanently shrinks the writing surface",
+              "Layout cost is disproportionate to short reference tasks",
+              "Breaks muscle memory every time a panel opens or closes",
             ],
             outcome: "Rejected as the primary direction",
           },
           {
-            title: "Concept 2 · Floating support panels",
+            title: "Concept 2 · Floating panels",
             description:
-              "Panels appear temporarily over the workspace when users need them.",
+              "Panels appear as overlays when invoked, floating above the notes surface without restructuring it. The writing area is preserved completely — panels appear, do their job, and dismiss without leaving a mark on the layout.",
             pros: [
-              "Preserves the main writing surface",
-              "Supports quick reference",
-              "Feels lightweight",
+              "Writing surface is never displaced",
+              "Panels can be dismissed cleanly without layout cost",
+              "Supports quick-reference tasks naturally",
             ],
             cons: [
-              "Needs strong interaction rules",
-              "Can become messy if unmanaged",
+              "Needs clear behavioral rules to avoid interaction chaos",
+              "Stacking and dismissal patterns need explicit design",
             ],
-            outcome: "Strong direction",
+            outcome: "Strong direction — needed more structure",
           },
           {
             title: "Concept 3 · Hybrid snap + float",
             description:
-              "Panels can float for quick use or snap into place for extended interaction.",
+              "Panels can float for quick reference or snap to a fixed position for extended interaction. The notes surface never resizes. Only the panel's position changes — not the workspace geometry. This distinction became the core interaction principle: positions snap, windows don't.",
             pros: [
-              "Balances flexibility with structure",
-              "Adapts to different behaviors",
-              "Supports both short and long tasks",
+              "Writing surface is always preserved",
+              "Adapts to both quick glances and extended sessions",
+              "Snapping provides stability without permanent layout change",
             ],
-            cons: ["Slightly more complex to implement well"],
+            cons: ["Snap and float rules need careful definition to feel intuitive"],
             outcome:
               "Selected direction — balances flexibility with focus without permanently reducing writing space",
           },
@@ -219,24 +219,26 @@ export const caseStudies: CaseStudy[] = [
         label: "06",
         title: "Interaction Model",
         content: [
-          "The interaction model is designed around temporary intent rather than persistent tool visibility. Notes remain the primary surface, while supporting panels appear only when they are actively needed.",
+          "The interaction model is built around temporary intent rather than persistent tool visibility. Notes remain the primary surface at all times, while supporting panels appear only when actively needed and disappear without a trace when dismissed.",
+          "The AI panel in particular is invoked intentionally — it does not persist as an open sidebar. An always-visible AI panel competes for attention even when not in use. Invoked AI draws focus only when the user chooses.",
         ],
         bullets: [
-          "Notes remain visually dominant at all times",
-          "Supporting panels are secondary and dismissible",
-          "Panels can float for temporary tasks",
-          "Panels can snap for extended reading or interaction",
-          "AI is invoked intentionally instead of remaining permanently open",
+          "Notes remain visually dominant at all times — never resized, never displaced",
+          "Supporting panels are invoked via keyboard shortcut or command input",
+          "Panels float for temporary tasks and snap to position for extended interaction",
+          "Dismissing a panel returns the workspace to exactly the state it was in before",
+          "AI is drawn into the workflow intentionally, not left open as ambient noise",
         ],
       },
       {
-        id: "layout-patterns",
+        id: "the-board",
         label: "07",
-        title: "Layout Patterns",
+        title: "The Board — Context-Preserving Clipboard",
         content: [
-          "The system is built around a note-first layout, with the primary writing area always preserved.",
-          "When a single support panel opens, it should feel like a quick extension of the workspace rather than a permanent structural change.",
-          "When two panels are open, hierarchy becomes critical: notes remain primary, while the PDF and AI layers act as temporary assistants rather than equal surfaces.",
+          "The most painful friction point surfaced in research: students constantly switching to ChatGPT or Claude, pasting screenshots, re-explaining context each time, and losing the thread entirely when they had a follow-up question.",
+          "The Board is Hourflow's answer to this. It's a persistent, lightweight tray — accessible via a '+' button in the toolbar or a keyboard shortcut — that stores up to ten recent screenshots captured from within the app.",
+          "Unlike system screenshots that save to a desktop folder and get lost, Board captures are scoped to the current study session and remain immediately available. Screenshots can be dragged directly into the AI tutor panel, or selected in multiples and submitted together with a question. Context travels with the image — no re-explaining required.",
+          "The Board collapses a workflow that currently requires three separate apps and a system clipboard into a single drag-and-drop gesture inside one workspace.",
         ],
       },
       {
@@ -244,35 +246,65 @@ export const caseStudies: CaseStudy[] = [
         label: "08",
         title: "Visual Design",
         content: [
-          "The visual language is designed to feel quiet, spacious, and cognitively light. Instead of dense interface chrome or aggressive contrast, Hourflow uses soft surfaces, restrained borders, and generous spacing to support long study sessions.",
-          "The goal is not to impress through ornamentation, but to reduce visual fatigue and keep attention anchored to the primary writing surface.",
+          "The visual system is designed to feel like a physical notebook — warm, quiet, and easy to inhabit for long stretches. The background is off-white with a slight warm tone. Not clinical white: the warmth signals 'notes environment' rather than 'productivity dashboard,' and was chosen by asking what this should feel like at 10pm after a long study session.",
+          "Panels use glass-like borders with a very slight shadow — the only depth cue in the system. The shadow communicates that panels float above the notes surface rather than sitting beside it. Interaction affordances appear on hover only, keeping the resting state as quiet as possible.",
+          "Typography pairs a readable serif for note content (Lora or Source Serif 4) with a clean sans-serif for UI chrome (DM Sans). Hierarchy is created through size and weight alone — color is kept out of it. Notes text is slightly larger than UI labels to reinforce which surface is primary without any explicit visual separation.",
+          "An earlier version used a cooler color temperature and harder panel borders. It looked like a productivity app. It felt like work. The warmth and the glass panels came from a single reframe: this isn't a tool for getting things done — it's a space for thinking.",
         ],
       },
       {
-        id: "selected-direction",
+        id: "layout-patterns",
         label: "09",
-        title: "Selected Direction",
+        title: "Layout Patterns",
         content: [
-          "The final direction centers on a note-first workspace supported by temporary, on-demand tools. Instead of permanently allocating space to every feature, Hourflow treats PDFs and AI as secondary layers that can appear briefly or expand when needed.",
-          "The hybrid snap + float model emerged as the strongest direction because it preserves writing focus while still supporting both quick reference tasks and longer interactions.",
+          "The system is built around a note-first layout where the primary writing area is always preserved regardless of what supporting panels are open.",
+          "When a single support panel opens, it should feel like a quick extension of the workspace rather than a structural change — a floating layer over the same canvas, not a new column beside it.",
+          "When two panels are open, hierarchy becomes critical: notes remain primary, while PDF and AI layers act as temporary assistants rather than equal surfaces competing for the same space.",
+        ],
+      },
+      {
+        id: "open-questions",
+        label: "10",
+        title: "Open Questions — Still Solving",
+        content: [
+          "These are the problems I haven't fully resolved yet — and I think they're the right ones to be sitting with at this stage of the project.",
+        ],
+        cards: [
+          {
+            title: "Performance and memory",
+            description:
+              "Running a notes editor, PDF renderer, and AI panel simultaneously in a browser environment carries real memory overhead. The snap + float model helps by avoiding multiple persistent panels at once, but the performance budget for this interaction model needs to be validated in code — not just in Figma.",
+          },
+          {
+            title: "Cognitive load — does it actually work?",
+            description:
+              "The design is built on the premise that floating panels reduce cognitive load compared to split layouts. That premise comes from personal experience and informal research, not formal testing. Structured usability testing with real students in real study sessions is the next critical step — to verify what the model promises, and find where it doesn't deliver.",
+          },
+          {
+            title: "Interaction schema and keyboard shortcuts",
+            description:
+              "The full command and keyboard shortcut system is not yet designed. For users in deep focus, every mouse-required action is a friction point. The keyboard layer needs to be designed as intentionally as the visual interface — which commands, which keys, how conflicts resolve, and how new users discover the system without documentation.",
+          },
         ],
       },
       {
         id: "current-status",
-        label: "10",
+        label: "11",
         title: "Current Status",
         content: [
-          "Hourflow is currently in active development, with ongoing exploration around panel behavior, workspace customization, and AI-assisted study workflows.",
-          "The current direction focuses on refining interaction systems before expanding the product into a broader functional prototype.",
+          "Hourflow is in active Figma design with parallel frontend development in Next.js. The current focus is refining the panel interaction system and designing the Board component.",
+          "The next phase is a functional prototype covering the core note-taking surface, AI invocation flow, and the Board — the three features that most directly address the context-switching problem this project set out to solve.",
         ],
       },
       {
         id: "reflection",
-        label: "11",
+        label: "12",
         title: "Reflection",
         content: [
-          "This project shifted my thinking from designing screens to designing behavior. The main challenge was not arranging panels, but deciding when interfaces should appear, how long they should stay, and how quickly users should be able to return to focus.",
-          "The strongest direction emerged when the system began adapting to temporary intent rather than assuming every tool needed permanent visibility.",
+          "This project changed how I think about interface design. The hardest decisions weren't about what to show — they were about when things should appear, how long they should stay, and how quickly a user should be able to return to what they were doing.",
+          "The clarifying moment was a frustrating personal experience: resizing my notes window to make room for Chrome, then resizing again to get back to writing, then again for a PDF. Every resize asked me to re-orient to a slightly different surface. Small cost, but cumulative — and over a long study session, it added up to a genuinely fragmented experience.",
+          "Hourflow's core interaction principle — positions snap, windows don't — came directly from that moment. Not from a principle on a whiteboard, but from a real and specific friction that needed solving.",
+          "The strongest design decisions in this project emerged when I stopped trying to design a workspace and started trying to protect an experience: the feeling of being inside a thought, undisturbed.",
         ],
       },
     ],
