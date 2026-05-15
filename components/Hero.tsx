@@ -332,9 +332,9 @@ const Hero = ({ onIntroComplete }: HeroProps) => {
 
                 <motion.div variants={textChild} className="mt-4 sm:mt-5">
                   <p className="text-sm leading-snug text-black/65 sm:text-base md:text-lg">
-                    Creating memorable experiences
+                    Reducing friction between thought and interaction
                     <br />
-                    UI/UX Designer &amp; Developer
+                    Design Engineer
                   </p>
                 </motion.div>
               </motion.div>
