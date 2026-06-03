@@ -357,7 +357,7 @@ const Hero = ({ onIntroComplete }: HeroProps) => {
           >
             <span className="text-[10px]">●</span>
             <p className="text-xs font-medium tracking-wide sm:text-sm ">
-              Buffalo, NY
+              New York
             </p>
           </motion.div>
         </div>
