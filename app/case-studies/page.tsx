@@ -11,11 +11,7 @@ const words = ["Crafting", "experiences", "that", "matter"];
 export default function CaseStudiesPage() {
   return (
     <>
-      <div className="sticky top-0 z-50 flex w-full justify-center px-3 pt-4 sm:px-4 lg:px-6">
-        <Navbar />
-      </div>
-
-      <main className="flex min-h-screen items-center justify-center px-6 md:px-12 lg:px-20">
+      <main className="flex relative min-h-screen items-center justify-center px-6 md:px-12 lg:px-20">
         <section className="mx-auto max-w-6xl pb-20 pt-32">
           <motion.h1
             className="mt-42 text-3xl md:text-5xl"

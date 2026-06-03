@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import RouteOverlay from "@/components/RouteOverlay";
 import { TransitionProvider } from "@/components/TransitionProvider";
+import Navbar from "@/components/Navbar";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -37,6 +38,7 @@ export default function RootLayout({
           <SmoothScrollProvider>
             <RouteOverlay />
             {children}
+            <Navbar/>
           </SmoothScrollProvider>
         </TransitionProvider>
       </body>

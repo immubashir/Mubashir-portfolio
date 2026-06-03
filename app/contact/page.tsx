@@ -49,7 +49,6 @@ const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 export default function ContactPage() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#edf1f1] px-5 py-28 text-[#151515] sm:px-6 md:px-10 lg:px-16 xl:px-20 2xl:px-28">
-      <Navbar/>
       <section className="mx-auto flex min-h-[calc(100vh-7rem)] w-full max-w-[1800px] flex-col justify-between gap-16">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

@@ -14,6 +14,7 @@ import Skills from "@/components/Skills";
 import Socials from "@/components/Socials";
 import Hero from "@/components/Hero";
 import DotBackground from "@/components/DotBackground";
+import SiteToggle from "@/components/SiteToggle";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
@@ -110,28 +111,30 @@ export default function Home() {
       }}
     >
       <motion.div
-        className="sticky inset-x-0 top-0 z-50 flex justify-center px-3 sm:px-4 lg:px-6"
-        initial={false}
-        animate={
-          isLoading
-            ? {
-                opacity: 0,
-                scale: 0.98,
-                filter: "blur(6px)",
-                pointerEvents: "none" as const,
-              }
-            : {
-                opacity: 1,
-                scale: 1,
-                filter: "blur(0px)",
-                pointerEvents: "auto" as const,
-              }
-        }
-        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-        style={{ willChange: "opacity, transform, filter" }}
-      >
-        <Navbar />
-      </motion.div>
+          className="sticky pointer-events-none fixed inset-0 z-[9999]"
+          initial={false}
+          animate={
+            isLoading
+              ? {
+                  opacity: 0,
+                  scale: 0.98,
+                  filter: "blur(6px)",
+                  pointerEvents: "none" as const,
+                }
+              : {
+                  opacity: 1,
+                  scale: 1,
+                  filter: "blur(0px)",
+                  pointerEvents: "auto" as const,
+                }
+          }
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        >
+
+          <div className="pointer-events-auto fixed left-1/2 top-6 -translate-x-1/2">
+            <SiteToggle />
+          </div>
+        </motion.div>
       <Hero
         onIntroComplete={handleHeroIntroComplete}
         // skipIntro={!isLoading}
