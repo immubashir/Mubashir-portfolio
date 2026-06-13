@@ -37,7 +37,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
   return (
     <main className="min-h-screen bg-[#f7f7f3] text-[#171717]">
-      <Navbar />
+      {/* <Navbar /> */}
       <CaseStudyHero study={study} />
 
       <div className="mx-auto max-w-6xl px-6 pb-24 pt-14 md:px-10">
