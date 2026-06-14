@@ -5,9 +5,9 @@ import Image from "next/image";
 import { motion, useScroll, useTransform, useInView } from "motion/react";
 
 const lines = [
-  "Crafting experiences!",
-  "Experiences that are sharp, intuitive, and built with purpose",
-  "Less noise, more impact.",
+  "I design what I build.",
+  "Calm interfaces for complex systems.",
+  "No handoff. No loss in translation.",
 ];
 
 const About = () => {
@@ -34,7 +34,7 @@ const About = () => {
       <div className="relative aspect-[0.95/1] w-full max-w-[640px] overflow-hidden bg-neutral-300 sm:rounded-[10px] lg:w-[46%] lg:max-w-none 2xl:w-[44%]">
         <motion.div style={{ y: imageY }} className="absolute inset-0 scale-[1.2] sm:scale-[1.35] lg:scale-[1.5] 2xl:scale-[1.7]">
           <Image
-            src="/Me_pic-2.png"
+            src="/Me_img_2.png"
             alt="Mubashir portrait"
             fill
             className="object-contain"

@@ -24,19 +24,26 @@ const HoverPreview = ({
   const [isHovering, setIsHovering] = useState(false);
 
   const previewSize = 320;
+  const blobSize = 76;
 
-  const mouseX = useSpring(0, { stiffness: 260, damping: 24, mass: 0.7 });
-  const mouseY = useSpring(0, { stiffness: 260, damping: 24, mass: 0.7 });
+  const blobX = useSpring(0, { stiffness: 420, damping: 30, mass: 0.45 });
+  const blobY = useSpring(0, { stiffness: 420, damping: 30, mass: 0.45 });
+
+  const cardX = useSpring(0, { stiffness: 180, damping: 26, mass: 0.9 });
+  const cardY = useSpring(0, { stiffness: 180, damping: 26, mass: 0.9 });
 
   const updatePreviewPosition = (clientX: number, clientY: number) => {
     if (!parentRef.current) return;
 
     const rect = parentRef.current.getBoundingClientRect();
-    const x = clientX - rect.left - previewSize / 2;
-    const y = clientY - rect.top - previewSize / 2;
+    const x = clientX - rect.left;
+    const y = clientY - rect.top;
 
-    mouseX.set(x);
-    mouseY.set(y);
+    blobX.set(x - blobSize / 2);
+    blobY.set(y - blobSize / 2);
+
+    cardX.set(x - previewSize / 2);
+    cardY.set(y - previewSize / 2);
   };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -58,39 +65,64 @@ const HoverPreview = ({
           onMouseMove={handleMouseMove}
           className="group relative flex min-h-[150px] w-full flex-col justify-between gap-4 border-b border-black/10 py-6 sm:min-h-[180px] sm:py-8 md:min-h-[220px] md:flex-row md:items-center md:gap-8 md:py-10"
         >
-          <h1 className="relative z-10 max-w-4xl text-[clamp(2rem,5vw,4rem)] leading-none tracking-[-0.04em] transition-all duration-300 group-hover:text-gray-500 md:group-hover:-translate-x-2">
+          <h1 className="relative z-10 max-w-4xl text-[clamp(2rem,5vw,4rem)] leading-none tracking-[-0.04em] transition-all duration-300 group-hover:text-black/35 md:group-hover:-translate-x-2">
             {title}
           </h1>
 
-          <h2 className="relative z-10 text-sm uppercase tracking-[0.18em] text-black/60 transition-all duration-500 group-hover:text-gray-500 sm:text-base md:text-[clamp(1.05rem,2vw,2.2rem)] md:tracking-normal md:group-hover:translate-x-2">
+          <h2 className="relative z-10 text-sm uppercase tracking-[0.18em] text-black/45 transition-all duration-500 group-hover:text-black/25 sm:text-base md:text-[clamp(1.05rem,2vw,2.05rem)] md:tracking-normal md:group-hover:translate-x-2">
             {category}
           </h2>
 
+          {/* Preview card — slow follower */}
           <motion.div
-            className="pointer-events-none absolute z-20 hidden overflow-hidden bg-gray-300 shadow-[inset_0_1px_10px_rgba(255,255,255,0.25),0_12px_40px_rgba(255,255,255,0.15)] backdrop-blur-2xl md:block"
+            className="pointer-events-none absolute z-20 hidden overflow-hidden rounded-[] bg-[#cbcdd3] p-3 shadow-[0_24px_80px_rgba(0,0,0,0.18)] md:block"
             style={{
               width: previewSize,
               height: previewSize,
-              left: mouseX,
-              top: mouseY,
+              left: cardX,
+              top: cardY,
             }}
-            initial={{ opacity: 0, scale: 0.75 }}
+            initial={{ opacity: 0, scale: 0.88, rotate: -1.5 }}
             animate={{
               opacity: isHovering ? 1 : 0,
-              scale: isHovering ? 1 : 0.75,
+              scale: isHovering ? 1 : 0.88,
+              rotate: isHovering ? 0 : -1.5,
             }}
             transition={{
-              opacity: { duration: 0.22, ease: "easeInOut" },
-              scale: { duration: 0.28, ease: "easeInOut" },
+              opacity: { duration: 0.18, ease: "easeOut" },
+              scale: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
+              rotate: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
             }}
           >
-            <Image
-              src={heroImage}
-              alt={`${title} preview`}
-              fill
-              className="object-contain"
-              sizes="320px"
-            />
+            <div className="relative h-full w-full overflow-hidden rounded-[] ">
+              <Image
+                src={heroImage}
+                alt={`${title} preview`}
+                fill
+                className="object-contain"
+                sizes="320px"
+              />
+            </div>
+          </motion.div>
+
+          {/* View blob — medium follower */}
+          <motion.div
+            className="pointer-events-none absolute z-30 hidden h-[76px] w-[76px] items-center justify-center rounded-full bg-black text-sm font-medium text-white shadow-[0_14px_40px_rgba(0,0,0,0.22)] md:flex"
+            style={{
+              left: blobX,
+              top: blobY,
+            }}
+            initial={{ opacity: 0, scale: 0.65 }}
+            animate={{
+              opacity: isHovering ? 1 : 0,
+              scale: isHovering ? 1 : 0.65,
+            }}
+            transition={{
+              opacity: { duration: 0.16, ease: "easeOut" },
+              scale: { duration: 0.24, ease: [0.22, 1, 0.36, 1] },
+            }}
+          >
+            View
           </motion.div>
         </div>
       </Link>

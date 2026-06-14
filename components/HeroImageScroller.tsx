@@ -237,78 +237,92 @@ const HeroImageScroller = ({ introComplete }: HeroImageScrollerProps) => {
               className="object-contain object-center"
             />
 
-            <motion.div
-              style={{
-                opacity: textOpacity,
-                y: textY,
-              }}
-              className="
-                absolute right-4 top-1/2 z-20 max-w-[180px] -translate-y-1/2 text-left
-                text-4xl leading-snug sm:right-6 sm:max-w-[220px] sm:text-base
-                md:right-8 md:max-w-[260px] md:text-lg
-                lg:right-40 lg:max-w-[320px] lg:text-5xl font-bold
-              "
-            >
-              <div className="space-y-1 sm:space-y-1.5">
-                <motion.p
-                  style={{
-                    backgroundImage: line1Fill,
-                    WebkitBackgroundClip: "text",
-                    backgroundClip: "text",
-                    color: "transparent",
-                  }}
-                  className="font-medium tracking-[-0.03em]"
-                >
-                  Scroll down
-                </motion.p>
+            {/* Left info panel */}
+<motion.div
+  style={{
+    opacity: textOpacity,
+    y: textY,
+  }}
+  className="
+    absolute left-8 top-1/2 z-20 hidden max-w-[260px] -translate-y-1/2 text-left
+    lg:block xl:left-12
+  "
+>
+  <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.32em] text-white/55">
+    Currently exploring
+  </p>
 
-                <motion.p
-                  style={{
-                    backgroundImage: line2Fill,
-                    WebkitBackgroundClip: "text",
-                    backgroundClip: "text",
-                    color: "transparent",
-                  }}
-                  className="font-medium tracking-[-0.03em]"
-                >
-                  to explore
-                </motion.p>
+  <div className="space-y-3 text-sm font-medium leading-snug text-white/78">
+    <p>AI workflow observability</p>
+    <p>Human–AI interaction</p>
+    <p>Interaction systems</p>
+    <p>Frontend craft</p>
+  </div>
+</motion.div>
 
-                <motion.p
-                  style={{
-                    backgroundImage: line3Fill,
-                    WebkitBackgroundClip: "text",
-                    backgroundClip: "text",
-                    color: "transparent",
-                  }}
-                  className="font-medium tracking-[-0.03em]"
-                >
-                  my work
-                </motion.p>
-                <motion.p
-                  style={{
-                    backgroundImage: line4Fill,
-                    WebkitBackgroundClip: "text",
-                    backgroundClip: "text",
-                    color: "transparent",
-                  }}
-                  className="font-medium tracking-[-0.03em]"
-                >
-                  and know more
-                </motion.p>
-                <motion.p
-                  style={{
-                    backgroundImage: line5Fill,
-                    WebkitBackgroundClip: "text",
-                    backgroundClip: "text",
-                    color: "transparent",
-                  }}
-                  className="font-medium tracking-[-0.03em]"
-                >
-                  about me.
-                </motion.p>
-              </div>
-            </motion.div>
+{/* Right statement panel */}
+<motion.div
+  style={{
+    opacity: textOpacity,
+    y: textY,
+  }}
+  className="
+    absolute right-6 top-1/2 z-20 max-w-[230px] -translate-y-1/2 text-left
+    sm:right-8 sm:max-w-[280px]
+    lg:right-16 lg:max-w-[340px]
+    xl:right-20
+  "
+>
+  <div className="space-y-1.5 text-4xl font-semibold leading-[1.08] tracking-[-0.055em] sm:text-5xl lg:text-6xl">
+    <motion.p
+      style={{
+        backgroundImage: line1Fill,
+        WebkitBackgroundClip: "text",
+        backgroundClip: "text",
+        color: "transparent",
+      }}
+    >
+      Calm
+    </motion.p>
+
+    <motion.p
+      style={{
+        backgroundImage: line2Fill,
+        WebkitBackgroundClip: "text",
+        backgroundClip: "text",
+        color: "transparent",
+      }}
+    >
+      Interfaces
+    </motion.p>
+
+    <motion.p
+      style={{
+        backgroundImage: line3Fill,
+        WebkitBackgroundClip: "text",
+        backgroundClip: "text",
+        color: "transparent",
+      }}
+    >
+      for systems
+    </motion.p>
+
+    <motion.p
+      style={{
+        backgroundImage: line4Fill,
+        WebkitBackgroundClip: "text",
+        backgroundClip: "text",
+        color: "transparent",
+      }}
+    >
+      that aren<span>&rsquo;</span>t
+    </motion.p>
+  </div>
+
+  <p className="mt-6 max-w-[240px] text-sm leading-relaxed text-white/58">
+    I design and ship calm interfaces for complex AI-native workflows.
+  </p>
+</motion.div>
           </motion.div>
         </motion.div>
       </div>

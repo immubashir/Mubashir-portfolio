@@ -55,7 +55,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Product Designer + Engineer",
     timeline: "Research & Design Phase",
     tools: ["Figma", "Next.js", "Tailwind CSS", "Framer Motion"],
-    heroImage: "/hourflow/Hourflow-Hero.png",
+    heroImage: "/Hourflow_Preview.png",
     tint: "rgb(144, 93, 211)",
     tintLow: "rgb(144, 93, 211, 0.1)",
     overview:
